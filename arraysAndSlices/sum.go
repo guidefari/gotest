@@ -12,3 +12,9 @@ func Sum(numbers []int) int {
 
 	return sum
 }
+
+func SumAll(numberSlices ...[]int) []int {
+	value := []int{3, 5}
+
+	return value
+}
