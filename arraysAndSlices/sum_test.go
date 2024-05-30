@@ -77,4 +77,13 @@ func TestSumAllTails(t *testing.T) {
 		}
 	})
 
+	t.Run("", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2, 8}, []int{}, []int{0, 9, 0, 1})
+		want := []int{10, 0, 10}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+
 }
