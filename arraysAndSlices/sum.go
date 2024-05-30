@@ -13,8 +13,17 @@ func Sum(numbers []int) int {
 	return sum
 }
 
-func SumAll(numberSlices ...[]int) []int {
-	value := []int{3, 5}
+func SumAll(numbersToSum ...[]int) []int {
+	result := []int{}
 
-	return value
+	for _, curr := range numbersToSum {
+		sum := 0
+		for _, num := range curr {
+			sum += num
+		}
+
+		result = append(result, sum)
+	}
+
+	return result
 }
