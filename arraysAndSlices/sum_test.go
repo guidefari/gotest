@@ -20,8 +20,6 @@ func TestSum(t *testing.T) {
 	})
 
 	t.Run("collection of 3 numbers", func(t *testing.T) {
-		// this errors out because an array's size is part of its type's signature
-		// numbers := [5]int{1, 2, 3, 4, 5}
 		numbers := []int{1, 2, 3}
 
 		got := Sum(numbers)
@@ -36,8 +34,6 @@ func TestSum(t *testing.T) {
 
 func TestSumAll(t *testing.T) {
 	t.Run("one slice", func(t *testing.T) {
-		// this errors out because an array's size is part of its type's signature
-		// numbers := [5]int{1, 2, 3, 4, 5}
 		numbers := []int{1, 2, 3}
 
 		got := SumAll([]int{1, 1, 1})
@@ -51,8 +47,6 @@ func TestSumAll(t *testing.T) {
 	})
 
 	t.Run("multiple slice", func(t *testing.T) {
-		// this errors out because an array's size is part of its type's signature
-		// numbers := [5]int{1, 2, 3, 4, 5}
 		numbers := []int{1, 2, 3}
 
 		got := SumAll([]int{1, 2}, []int{0, 9})
@@ -62,4 +56,25 @@ func TestSumAll(t *testing.T) {
 			t.Errorf("got %d want %d given, %v", got, want, numbers)
 		}
 	})
+}
+
+func TestSumAllTails(t *testing.T) {
+	t.Run("", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2}, []int{0, 9})
+		want := []int{2, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+
+	t.Run("", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2, 8}, []int{0, 9, 0, 1})
+		want := []int{10, 10}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+
 }

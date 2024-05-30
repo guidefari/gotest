@@ -14,11 +14,21 @@ func Sum(numbers []int) int {
 }
 
 func SumAll(numbersToSum ...[]int) []int {
-	lengthOfNumbers := len(numbersToSum)
-	result := make([]int, lengthOfNumbers)
+	var result []int
 
-	for index, value := range numbersToSum {
-		result[index] = Sum(value)
+	for _, value := range numbersToSum {
+		result = append(result, Sum(value))
+	}
+
+	return result
+}
+
+func SumAllTails(numbersToSum ...[]int) []int {
+	var result []int
+
+	for _, value := range numbersToSum {
+		tail := value[1:]
+		result = append(result, Sum(tail))
 	}
 
 	return result
